@@ -17,3 +17,70 @@
   align-items: center;
   justify-content: center;
 }
+.label-and-input {
+  position: relative;
+
+  .formbold-form-label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+  }
+  .message-label {
+    top: 20%;
+  }
+
+  .formbold-form-input:focus + .formbold-form-label {
+    top: 0;
+    left: 20px;
+    transition: all 0.3s ease; /* Smooth transition for label movement */
+    font-size: 0.9rem; /* Optional: shrink label size */
+    background-color: #fff;
+    padding: 10px;
+  }
+  .message:focus + .formbold-form-label {
+    top: 0;
+    left: 20px;
+    transition: all 0.3s ease; /* Smooth transition for label movement */
+    font-size: 0.9rem; /* Optional: shrink label size */
+    background-color: #fff;
+    padding: 10px;
+  }
+}
+
+// .label-and-input{
+//     position: relative;
+// }
+// .input-name-label{
+//     position:absolute;
+//     top:50%;
+//     left: 20px;
+//     transform: translateY(-50%);
+//     transition: 0.5s;
+// }
+// .input-name-label::before {
+//     content: "";
+//     position: absolute;
+//     top:0;
+//     left:0;
+// }
+// .input-name-label::after {
+//     content: "";
+//     position: absolute;
+//     top:0;
+//     right:0;
+//     opacity: 0;
+//     transition: 0.5s;
+// }
+// // .label-and-input input:focus ~ .input-name-label,
+// // .label-and-input input:valid ~ .input-name-label {
+// //     top: 0;
+// //     left: 20px;
+// //     transition: all 0.3s ease; /* Smooth transition for label movement */
+// //     font-size: 0.9rem; /* Optional: shrink label size */
+// //     color: #007bff; /* Optional: change label color */
+// // }
+// .label-and-input input:focus ~ .input-name-label {
+//     opacity: 0; /* Makes the label invisible */
+//     visibility: hidden; /* Hides the label from the layout */
+//   }

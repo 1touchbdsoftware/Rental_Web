@@ -517,16 +517,19 @@
           <div class="flex flex-wrap formbold--mx-3">
             <div class="w-full sm:w-half formbold-px-3">
               <div class="formbold-mb-5">
-                <label for="agencyName" class="formbold-form-label"
-                  >Agency Name</label
-                >
-                <input
+                <div class="label-and-input">
+                  <input
                   type="text"
                   formControlName="agencyName"
                   id="agencyName"
-                  placeholder="Enter Agency Name"
                   class="formbold-form-input"
-                />
+                  />
+                  <label
+                    for="agencyName"
+                    class="formbold-form-label input-name-label"
+                    >Agency Name</label
+                  >
+                </div>
                 <div
                   *ngIf="
                     contactForm.controls['agencyName'].invalid &&
@@ -539,14 +542,17 @@
             </div>
             <div class="w-full sm:w-half formbold-px-3">
               <div class="formbold-mb-5">
-                <label for="name" class="formbold-form-label">Name</label>
-                <input
+                <div class="label-and-input">
+                  <input
                   type="text"
                   formControlName="name"
                   id="name"
-                  placeholder="Enter Name"
                   class="formbold-form-input"
-                />
+                  />
+                  <label for="name" class="formbold-form-label input-name-label"
+                    >Name</label
+                  >
+                </div>
                 <div
                   *ngIf="
                     contactForm.controls['name'].invalid &&
@@ -563,14 +569,19 @@
           <div class="flex flex-wrap formbold--mx-3">
             <div class="w-full sm:w-half formbold-px-3">
               <div class="formbold-mb-5">
-                <label for="phone" class="formbold-form-label">Phone</label>
-                <input
+                <div class="label-and-input">
+                  <input
                   type="tel"
                   formControlName="phone"
                   id="phone"
-                  placeholder="Enter Phone"
                   class="formbold-form-input"
-                />
+                  />
+                  <label
+                    for="phone"
+                    class="formbold-form-label input-name-label"
+                    >Phone</label
+                  >
+                </div>
                 <div
                   *ngIf="
                     contactForm.controls['phone'].invalid &&
@@ -583,14 +594,19 @@
             </div>
             <div class="w-full sm:w-half formbold-px-3">
               <div class="formbold-mb-5">
-                <label for="Email" class="formbold-form-label">Email</label>
-                <input
+                <div class="label-and-input">
+                  <input
                   type="email"
                   formControlName="email"
                   id="email"
-                  placeholder="Enter Your Email"
                   class="formbold-form-input"
-                />
+                  />
+                  <label
+                    for="email"
+                    class="formbold-form-label input-name-label"
+                    >Email</label
+                  >
+                </div>
                 <div
                   *ngIf="
                     contactForm.controls['email'].invalid &&
@@ -605,13 +621,16 @@
 
           <!-- Address -->
           <div class="form-group mt-2 mb-2">
-            <label for="message" class="formbold-form-label">Address</label>
-            <input
+            <div class="label-and-input">
+              <input
               formControlName="address"
               id="address"
-              placeholder="Write your address"
               class="formbold-form-input"
-            />
+              />
+              <label for="address" class="formbold-form-label input-name-label"
+                >Address</label
+              >
+            </div>
             <div
               *ngIf="
                 contactForm.controls['address'].invalid &&
@@ -623,15 +642,18 @@
           </div>
 
           <!-- Message -->
-          <div class="form-group mt-2 mb-2">
-            <label for="message" class="formbold-form-label">Message</label>
-            <textarea
+          <div class="form-group mt-4 mb-2">
+            <div class="label-and-input mt-2">
+              <textarea
               formControlName="message"
               id="message"
-              placeholder="Write your message"
-              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="message w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               rows="4"
-            ></textarea>
+              ></textarea>
+              <label for="message" class="formbold-form-label input-name-label message-label"
+                >Message</label
+              >
+            </div>
             <div
               *ngIf="
                 contactForm.controls['message'].invalid &&
@@ -644,7 +666,9 @@
 
           <!-- Talking about -->
           <div class="form-group mb-2 form-center topic">
-            <label class="formbold-form-label">Talking about -</label>
+            <label class="formbold-form-label input-name-label"
+              >Talking about -</label
+            >
             <div class="form-check-group container-radio">
               <div class="form-check">
                 <input
