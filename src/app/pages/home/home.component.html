@@ -643,25 +643,27 @@
           </div>
 
           <!-- Talking about -->
-          <div class="form-group mb-2">
+          <div class="form-group mb-2 form-center topic">
             <label class="formbold-form-label">Talking about -</label>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                formControlName="topic"
-                [value]="false"
-              />
-              <label class="form-check-label">Trial</label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                formControlName="topic"
-                [value]="true"
-              />
-              <label class="form-check-label">Purchase</label>
+            <div class="form-check-group container-radio">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="topic"
+                  [value]="false"
+                />
+                <label class="form-check-label">Trial</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="topic"
+                  [value]="true"
+                />
+                <label class="form-check-label">Purchase</label>
+              </div>
             </div>
             <div
               *ngIf="
@@ -674,7 +676,7 @@
           </div>
 
           <!-- Google reCAPTCHA -->
-          <div class="form-group mb-2">
+          <div class="form-group mb-2 text-center captcha">
             <re-captcha
               [siteKey]="siteKey"
               (resolved)="onCaptchaResolved($event)"
@@ -692,18 +694,25 @@
           <!-- Submit -->
           <div>
             <button type="submit" class="btn-sm formbold-btn">
-              SEND REQUEST
+              <span
+                *ngIf="loading"
+                class="spinner-border spinner-border-sm"
+              ></span>
+              {{ loading ? "Submitting..." : "SEND REQUEST" }}
             </button>
           </div>
         </form>
 
         <div
           *ngIf="submissionStatus"
-          class="alert alert-success form-group mb-2"
+          class="alert alert-success form-group mb-2 text-center"
         >
           <p>{{ submissionStatus }}</p>
         </div>
-        <div *ngIf="errorMessage" class="alert alert-danger form-group mb-2">
+        <div
+          *ngIf="errorMessage"
+          class="alert alert-danger form-group mb-2 text-center"
+        >
           {{ errorMessage }}
         </div>
       </div>

@@ -1,0 +1,19 @@
+.captcha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.topic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-radio {
+  display: flex;
+  gap: 1rem; /* Space between radio buttons */
+  align-items: center;
+  justify-content: center;
+}

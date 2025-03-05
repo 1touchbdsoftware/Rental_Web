@@ -23,6 +23,7 @@ export class HomeComponent {
   submissionStatus: string = '';
   captchaResponse: string | null = null;
   siteKey = environment.recaptcha.siteKey;
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -47,6 +48,7 @@ export class HomeComponent {
     //console.log(this.contactForm.value);
     this.errorMessage = '';
     if (this.contactForm.valid) {
+      this.loading = true;
       this.contactUsService
         .submitContactForm(this.contactForm.value)
         .subscribe({
@@ -55,9 +57,15 @@ export class HomeComponent {
             this.submissionStatus = 'Thank you for contacting us!';
             this.contactForm.reset(); // Reset the form
             this.captchaResponse = null;
+            // Hide submission status after 5 seconds
+            setTimeout(() => {
+              this.submissionStatus = '';
+            }, 5000);
+            this.loading = false;
           },
           error: (err) => {
             this.errorMessage = err.message;
+            this.loading = false;
           },
         });
     } else {
@@ -81,6 +89,7 @@ export class HomeComponent {
     }
   }
   onSubmit() {
+    this.errorMessage = '';
     this.errorCheck();
     if (this.contactForm.invalid) {
       console.log('Returning for invalid form');
