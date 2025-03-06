@@ -53,8 +53,8 @@ export class HomeComponent {
         .submitContactForm(this.contactForm.value)
         .subscribe({
           next: (response) => {
-            console.log('API Response:', response);
-            this.submissionStatus = 'Thank you for contacting us!';
+            // console.log('API Response:', response);
+            this.submissionStatus = 'Request submission successful. Thank you for contacting us!';
             this.contactForm.reset(); // Reset the form
             this.captchaResponse = null;
             // Hide submission status after 5 seconds
@@ -73,7 +73,7 @@ export class HomeComponent {
     }
   }
   onCaptchaResolved(response: string | null) {
-    console.log(response);
+    // console.log(response);
     this.captchaResponse = response;
     this.contactForm.get('recaptcha')?.setValue(this.captchaResponse);
   }
@@ -92,7 +92,7 @@ export class HomeComponent {
     this.errorMessage = '';
     this.errorCheck();
     if (this.contactForm.invalid) {
-      console.log('Returning for invalid form');
+      // console.log('Returning for invalid form');
       return;
     }
     this.sendFormData();

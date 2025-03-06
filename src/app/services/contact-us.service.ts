@@ -1,26 +1,24 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
+import { RoutesService } from './routes-services/routes.service';
 
 @Injectable({
-  providedIn: 'root', // Provided in the root injector
+  providedIn: 'root',
 })
 export class ContactUsService {
-  private apiUrl = `${environment.apiUrl}`;
+  constructor(private routesService: RoutesService) {}
 
-  constructor(private http: HttpClient) {}
-
+  private controllerName = "ContactUs";
   submitContactForm(formData: any): Observable<any> {
-    const url = `${this.apiUrl}/${"api"}/${"ContactUs"}`
-    return this.http.post(url, formData, { responseType: 'text' }).pipe(
+    const url = `/${this.controllerName}/${"SubmitContactUsForm"}`;
+    return this.routesService.observable_post<any>(url, formData, { responseType: 'text' }).pipe(
       catchError(this.handleError)
     );
   }
 
   private handleError(error: HttpErrorResponse) {
-    if (error.status === 409) {
-      // Conflict: Email already exists
+    if (error.status === 409) {    
       return throwError(() => new Error('This email is already registered. Please use another email.'));
     } 
     // else if (error.status === 0) {
@@ -31,8 +29,7 @@ export class ContactUsService {
     //   return throwError(() => new Error(`Server error (${error.status}): ${error.message}`));
     // }
     // } 
-    else {
-      // Generic server error
+    else { 
       return throwError(() => new Error('Something went wrong. Unable to send the request.'));
     }
   }

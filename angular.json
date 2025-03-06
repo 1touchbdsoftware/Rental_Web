@@ -74,12 +74,6 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-
-          "options": {
-            "port": 4500,
-            "open": true
-          },
-
           "configurations": {
             "production": {
               "buildTarget": "Rental-Web-UI:build:production"
