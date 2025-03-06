@@ -519,14 +519,17 @@
               <div class="formbold-mb-5">
                 <div class="label-and-input">
                   <input
-                  type="text"
-                  formControlName="agencyName"
-                  id="agencyName"
-                  class="formbold-form-input"
+                    type="text"
+                    formControlName="agencyName"
+                    id="agencyName"
+                    class="formbold-form-input"
                   />
                   <label
                     for="agencyName"
                     class="formbold-form-label input-name-label"
+                    [ngClass]="{
+                      'label-up': contactForm.get('agencyName')?.value
+                    }"
                     >Agency Name</label
                   >
                 </div>
@@ -544,12 +547,17 @@
               <div class="formbold-mb-5">
                 <div class="label-and-input">
                   <input
-                  type="text"
-                  formControlName="name"
-                  id="name"
-                  class="formbold-form-input"
+                    type="text"
+                    formControlName="name"
+                    id="name"
+                    class="formbold-form-input"
                   />
-                  <label for="name" class="formbold-form-label input-name-label"
+                  <label
+                    for="name"
+                    class="formbold-form-label input-name-label"
+                    [ngClass]="{
+                      'label-up': contactForm.get('name')?.value
+                    }"
                     >Name</label
                   >
                 </div>
@@ -571,14 +579,17 @@
               <div class="formbold-mb-5">
                 <div class="label-and-input">
                   <input
-                  type="tel"
-                  formControlName="phone"
-                  id="phone"
-                  class="formbold-form-input"
+                    type="tel"
+                    formControlName="phone"
+                    id="phone"
+                    class="formbold-form-input"
                   />
                   <label
                     for="phone"
                     class="formbold-form-label input-name-label"
+                    [ngClass]="{
+                      'label-up': contactForm.get('phone')?.value
+                    }"
                     >Phone</label
                   >
                 </div>
@@ -596,14 +607,17 @@
               <div class="formbold-mb-5">
                 <div class="label-and-input">
                   <input
-                  type="email"
-                  formControlName="email"
-                  id="email"
-                  class="formbold-form-input"
+                    type="email"
+                    formControlName="email"
+                    id="email"
+                    class="formbold-form-input"
                   />
                   <label
                     for="email"
                     class="formbold-form-label input-name-label"
+                    [ngClass]="{
+                      'label-up': contactForm.get('email')?.value
+                    }"
                     >Email</label
                   >
                 </div>
@@ -623,11 +637,16 @@
           <div class="form-group mt-2 mb-2">
             <div class="label-and-input">
               <input
-              formControlName="address"
-              id="address"
-              class="formbold-form-input"
+                formControlName="address"
+                id="address"
+                class="formbold-form-input"
               />
-              <label for="address" class="formbold-form-label input-name-label"
+              <label
+                for="address"
+                class="formbold-form-label input-name-label"
+                [ngClass]="{
+                  'label-up': contactForm.get('address')?.value
+                }"
                 >Address</label
               >
             </div>
@@ -645,12 +664,17 @@
           <div class="form-group mt-4 mb-2">
             <div class="label-and-input mt-2">
               <textarea
-              formControlName="message"
-              id="message"
-              class="message w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              rows="4"
+                formControlName="message"
+                id="message"
+                class="formbold-form-input message w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                rows="4"
               ></textarea>
-              <label for="message" class="formbold-form-label input-name-label message-label"
+              <label
+                for="message"
+                class="formbold-form-label input-name-label message-label"
+                [ngClass]="{
+                  'label-up': contactForm.get('message')?.value
+                }"
                 >Message</label
               >
             </div>
@@ -674,19 +698,21 @@
                 <input
                   class="form-check-input"
                   type="radio"
+                  id="trial"
                   formControlName="topic"
                   [value]="false"
                 />
-                <label class="form-check-label">Trial</label>
+                <label class="form-check-label" for="trial">Trial</label>
               </div>
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="radio"
+                  id="purchase"
                   formControlName="topic"
                   [value]="true"
                 />
-                <label class="form-check-label">Purchase</label>
+                <label class="form-check-label" for="purchase">Purchase</label>
               </div>
             </div>
             <div
